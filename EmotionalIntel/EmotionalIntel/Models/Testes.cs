@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace EmotionalIntel.Models
 {
-    public class Teste
+    public class Testes
     {
-        public Teste(){
-
+        public Testes(){
+            ListaTecnicas = new HashSet<Tecnicas>();
+            ListaPerguntas = new HashSet<Perguntas>();
+            ListaTestesRealizados = new HashSet<Testes_Realizados>();
         }
 
         [Key]
@@ -28,11 +30,11 @@ namespace EmotionalIntel.Models
         //******************FK************************
         [ForeignKey("Utilizador")]
         public int utilizadorFK { get; set; }
-        public Utilizador utilizador { get; set; }
+        public Utilizadores utilizador { get; set; }
 
-        public ICollection<Tecnica> ListaTecnicas { get; set; }
-        public ICollection<Pergunta> ListaPerguntas { get; set; }
+        public ICollection<Tecnicas> ListaTecnicas { get; set; }
+        public ICollection<Perguntas> ListaPerguntas { get; set; }
         // Este não temos bem a certeza
-        public ICollection<Teste_Realizado> ListaTestesRealizados { get; set; }
+        public ICollection<Testes_Realizados> ListaTestesRealizados { get; set; }
     }
 }

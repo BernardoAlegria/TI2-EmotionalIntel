@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EmotionalIntel.Models
 {
-    public class Teste_Realizado
+    public class Testes_Realizados
     {
-        public Teste_Realizado()
+        public Testes_Realizados()
         {
 
         }
@@ -21,10 +21,10 @@ namespace EmotionalIntel.Models
         //******************FK************************
         [ForeignKey("Utilizador")] 
         public int utilizadorFK { get; set; } 
-        public Utilizador utilizador { get; set; }
+        public Utilizadores utilizador { get; set; }
 
         [ForeignKey("Teste")]
         public int testeFK { get; set; }
-        public Teste teste { get; set; }
+        public Testes teste { get; set; }
     }
 }

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace EmotionalIntel.Models
 {
-    public class Utilizador{
+    public class Utilizadores{
         //criar listas
 
-        public Utilizador(){
-            //por listas
-        }
+        public Utilizadores(){
+            ListaTestesCriados = new HashSet<Testes>();
+            ListaTestesRealizados = new HashSet<Testes_Realizados>();
 
+        }
 
         [Key]
         public int ID { get; set; }
@@ -24,8 +25,8 @@ namespace EmotionalIntel.Models
         public string password { get; set; }
 
         //******************FK************************
-        public ICollection<Teste_Realizado> ListaTestesRealizados { get; set; }
-        public ICollection<Teste> ListaTestesCriados { get; set; }
+        public ICollection<Testes_Realizados> ListaTestesRealizados { get; set; }
+        public ICollection<Testes> ListaTestesCriados { get; set; }
     }
 
 
