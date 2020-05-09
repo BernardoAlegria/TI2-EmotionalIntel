@@ -13,17 +13,20 @@ namespace EmotionalIntel.Models
         public Testes(){
             ListaTecnicas = new HashSet<Tecnicas>();
             ListaPerguntas = new HashSet<Perguntas>();
-            ListaTestesRealizados = new HashSet<Testes_Realizados>();
+            ListaTestesRealizados = new HashSet<TestesRealizados>();
         }
 
         [Key]
         public int ID { get; set; }
+
         [Required]
-        public string nome { get; set; }
+        public string Nome { get; set; }
+
         [Required]
         public int nRespostas { get; set; }
         
         public string descricao { get; set; }
+
         [Required]
         public string niveisPontuacao { get; set; }
 
@@ -34,7 +37,8 @@ namespace EmotionalIntel.Models
 
         public ICollection<Tecnicas> ListaTecnicas { get; set; }
         public ICollection<Perguntas> ListaPerguntas { get; set; }
+
         // Este não temos bem a certeza
-        public ICollection<Testes_Realizados> ListaTestesRealizados { get; set; }
+        public ICollection<TestesRealizados> ListaTestesRealizados { get; set; }
     }
 }

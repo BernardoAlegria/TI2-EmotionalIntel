@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace EmotionalIntel.Models
 {
-    public class Testes_Realizados
+    public class TestesRealizados
     {
-        public Testes_Realizados()
+        public TestesRealizados()
         {
 
         }
 
         public int ID { get; set; }
+
         public int pontuacao { get; set; }
+
         public DateTime data { get; set; }
 
 

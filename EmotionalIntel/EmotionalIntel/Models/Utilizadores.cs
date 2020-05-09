@@ -11,7 +11,7 @@ namespace EmotionalIntel.Models
 
         public Utilizadores(){
             ListaTestesCriados = new HashSet<Testes>();
-            ListaTestesRealizados = new HashSet<Testes_Realizados>();
+            ListaTestesRealizados = new HashSet<TestesRealizados>();
 
         }
 
@@ -21,12 +21,10 @@ namespace EmotionalIntel.Models
         [Required]
         public string nome { get; set; }
 
-        [Required]
-        public string password { get; set; }
 
         //******************FK************************
-        public ICollection<Testes_Realizados> ListaTestesRealizados { get; set; }
-        public ICollection<Testes> ListaTestesCriados { get; set; }
+        public ICollection<TestesRealizados> ListaTestesRealizados { get; set; }
+     //??//    public ICollection<Testes> ListaTestesCriados { get; set; }
     }
 
 

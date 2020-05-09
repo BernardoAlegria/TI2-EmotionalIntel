@@ -16,7 +16,7 @@ namespace EmotionalIntel.Data
         public DbSet<Perguntas> Perguntas { get; set; }
         public DbSet<Tecnicas> Tecnicas { get; set; }
         public DbSet<Testes> Testes { get; set; }
-        public DbSet<Testes_Realizados> Testes_Realizados { get; set; }
+        public DbSet<TestesRealizados> Testes_Realizados { get; set; }
         public DbSet<Utilizadores> Utilizadores { get; set; }   
 
     }
