@@ -7,21 +7,23 @@ using System.Threading.Tasks;
 
 namespace EmotionalIntel.Models
 {
-    public class Perguntas
+    public class Respostas
     {
-        public Perguntas()
+        public Respostas()
         {
 
         }
+
         [Key]
         public int ID { get; set; }
+
         [Required]
-        public string TxtPergunta { get; set; }
+        public string TxtRespostas { get; set; }
 
         //******************FK************************
-        [ForeignKey("Testes")]
-        public int TesteFK { get; set; }
-        public Testes Testes { get; set; }
+        [ForeignKey("Perguntas")]
+        public int PerguntasFK { get; set; }
+        public Perguntas Perguntas { get; set; }
 
     }
 }

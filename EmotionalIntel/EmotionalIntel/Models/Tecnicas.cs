@@ -16,16 +16,16 @@ namespace EmotionalIntel.Models
         [Key]
         public int ID { get; set; }
         [Required]
-        public string nome { get; set; }
+        public string Nome { get; set; }
         [Required]
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
         [Required]
-        public string nivel { get; set; }
+        public string Nivel { get; set; }
 
 
         //******************FK************************
         [ForeignKey("Teste")]
-        public int testeFK { get; set; }
-        public Testes teste { get; set; }
+        public int TesteFK { get; set; }
+        public Testes Teste { get; set; }
     }
 }

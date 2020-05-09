@@ -15,18 +15,18 @@ namespace EmotionalIntel.Models
 
         public int ID { get; set; }
 
-        public int pontuacao { get; set; }
+        public int Pontuacao { get; set; }
 
-        public DateTime data { get; set; }
+        public DateTime Data { get; set; }
 
 
         //******************FK************************
         [ForeignKey("Utilizador")] 
-        public int utilizadorFK { get; set; } 
-        public Utilizadores utilizador { get; set; }
+        public int UtilizadorFK { get; set; } 
+        public Utilizadores Utilizador { get; set; }
 
         [ForeignKey("Teste")]
-        public int testeFK { get; set; }
-        public Testes teste { get; set; }
+        public int TesteFK { get; set; }
+        public Testes Teste { get; set; }
     }
 }

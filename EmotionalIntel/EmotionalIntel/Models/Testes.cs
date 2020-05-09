@@ -23,17 +23,17 @@ namespace EmotionalIntel.Models
         public string Nome { get; set; }
 
         [Required]
-        public int nRespostas { get; set; }
+        public int NRespostas { get; set; }
         
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
 
         [Required]
-        public string niveisPontuacao { get; set; }
+        public string NiveisPontuacao { get; set; }
 
         //******************FK************************
         [ForeignKey("Utilizador")]
-        public int utilizadorFK { get; set; }
-        public Utilizadores utilizador { get; set; }
+        public int UtilizadorFK { get; set; }
+        public Utilizadores Utilizador { get; set; }
 
         public ICollection<Tecnicas> ListaTecnicas { get; set; }
         public ICollection<Perguntas> ListaPerguntas { get; set; }

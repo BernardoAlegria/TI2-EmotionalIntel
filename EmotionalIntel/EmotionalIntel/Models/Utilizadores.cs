@@ -19,12 +19,12 @@ namespace EmotionalIntel.Models
         public int ID { get; set; }
 
         [Required]
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
 
         //******************FK************************
         public ICollection<TestesRealizados> ListaTestesRealizados { get; set; }
-     //??//    public ICollection<Testes> ListaTestesCriados { get; set; }
+        public ICollection<Testes> ListaTestesCriados { get; set; }
     }
 
 
