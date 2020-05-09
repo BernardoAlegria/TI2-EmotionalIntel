@@ -11,7 +11,6 @@ namespace EmotionalIntel.Data
     {
         public EmotionalDB(DbContextOptions<EmotionalDB> options) : base(options) { }
 
-
         // adicionar as 'tabelas' à BD
         public DbSet<Perguntas> Perguntas { get; set; }
         public DbSet<Tecnicas> Tecnicas { get; set; }
