@@ -5,27 +5,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using EmotionalIntel.Data;
 using EmotionalIntel.Models;
 
-namespace EmotionalIntel.Data
+namespace EmotionalIntel.Controllers
 {
-    public class RespostasController : Controller
+    public class UtilizadoresController : Controller
     {
         private readonly EmotionalDB _context;
 
-        public RespostasController(EmotionalDB context)
+        public UtilizadoresController(EmotionalDB context)
         {
             _context = context;
         }
 
-        // GET: Respostas
+        // GET: Utilizadores
         public async Task<IActionResult> Index()
         {
-            var emotionalDB = _context.Respostas.Include(r => r.Perguntas);
-            return View(await emotionalDB.ToListAsync());
+            return View(await _context.Utilizadores.ToListAsync());
         }
 
-        // GET: Respostas/Details/5
+        // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +33,39 @@ namespace EmotionalIntel.Data
                 return NotFound();
             }
 
-            var respostas = await _context.Respostas
-                .Include(r => r.Perguntas)
+            var utilizadores = await _context.Utilizadores
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (respostas == null)
+            if (utilizadores == null)
             {
                 return NotFound();
             }
 
-            return View(respostas);
+            return View(utilizadores);
         }
 
-        // GET: Respostas/Create
+        // GET: Utilizadores/Create
         public IActionResult Create()
         {
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta");
             return View();
         }
 
-        // POST: Respostas/Create
+        // POST: Utilizadores/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TxtRespostas,PerguntasFK")] Respostas respostas)
+        public async Task<IActionResult> Create([Bind("ID,Nome")] Utilizadores utilizadores)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(respostas);
+                _context.Add(utilizadores);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
-            return View(respostas);
+            return View(utilizadores);
         }
 
-        // GET: Respostas/Edit/5
+        // GET: Utilizadores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +73,22 @@ namespace EmotionalIntel.Data
                 return NotFound();
             }
 
-            var respostas = await _context.Respostas.FindAsync(id);
-            if (respostas == null)
+            var utilizadores = await _context.Utilizadores.FindAsync(id);
+            if (utilizadores == null)
             {
                 return NotFound();
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
-            return View(respostas);
+            return View(utilizadores);
         }
 
-        // POST: Respostas/Edit/5
+        // POST: Utilizadores/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TxtRespostas,PerguntasFK")] Respostas respostas)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Nome")] Utilizadores utilizadores)
         {
-            if (id != respostas.ID)
+            if (id != utilizadores.ID)
             {
                 return NotFound();
             }
@@ -101,12 +97,12 @@ namespace EmotionalIntel.Data
             {
                 try
                 {
-                    _context.Update(respostas);
+                    _context.Update(utilizadores);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RespostasExists(respostas.ID))
+                    if (!UtilizadoresExists(utilizadores.ID))
                     {
                         return NotFound();
                     }
@@ -117,11 +113,10 @@ namespace EmotionalIntel.Data
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
-            return View(respostas);
+            return View(utilizadores);
         }
 
-        // GET: Respostas/Delete/5
+        // GET: Utilizadores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +124,30 @@ namespace EmotionalIntel.Data
                 return NotFound();
             }
 
-            var respostas = await _context.Respostas
-                .Include(r => r.Perguntas)
+            var utilizadores = await _context.Utilizadores
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (respostas == null)
+            if (utilizadores == null)
             {
                 return NotFound();
             }
 
-            return View(respostas);
+            return View(utilizadores);
         }
 
-        // POST: Respostas/Delete/5
+        // POST: Utilizadores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var respostas = await _context.Respostas.FindAsync(id);
-            _context.Respostas.Remove(respostas);
+            var utilizadores = await _context.Utilizadores.FindAsync(id);
+            _context.Utilizadores.Remove(utilizadores);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RespostasExists(int id)
+        private bool UtilizadoresExists(int id)
         {
-            return _context.Respostas.Any(e => e.ID == id);
+            return _context.Utilizadores.Any(e => e.ID == id);
         }
     }
 }

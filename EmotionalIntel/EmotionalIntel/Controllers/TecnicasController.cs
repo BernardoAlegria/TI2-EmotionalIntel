@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using EmotionalIntel.Data;
 using EmotionalIntel.Models;
 
-namespace EmotionalIntel.Data
+namespace EmotionalIntel.Controllers
 {
     public class TecnicasController : Controller
     {
