@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmotionalIntel.Migrations
 {
-    public partial class myFirstMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -93,8 +93,8 @@ namespace EmotionalIntel.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Pontuacao = table.Column<int>(nullable: false),
                     Data = table.Column<DateTime>(nullable: false),
-                    UtilizadorFK = table.Column<int>(nullable: false),
-                    TesteFK = table.Column<int>(nullable: false)
+                    UtilizadorFK = table.Column<int>(nullable: true),
+                    TesteFK = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -104,11 +104,31 @@ namespace EmotionalIntel.Migrations
                         column: x => x.TesteFK,
                         principalTable: "Testes",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Testes_Realizados_Utilizadores_UtilizadorFK",
                         column: x => x.UtilizadorFK,
                         principalTable: "Utilizadores",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Respostas",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TxtRespostas = table.Column<string>(nullable: false),
+                    PerguntaFK = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Respostas", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Respostas_Perguntas_PerguntaFK",
+                        column: x => x.PerguntaFK,
+                        principalTable: "Perguntas",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -117,6 +137,11 @@ namespace EmotionalIntel.Migrations
                 name: "IX_Perguntas_TesteFK",
                 table: "Perguntas",
                 column: "TesteFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Respostas_PerguntaFK",
+                table: "Respostas",
+                column: "PerguntaFK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tecnicas_TesteFK",
@@ -142,13 +167,16 @@ namespace EmotionalIntel.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Perguntas");
+                name: "Respostas");
 
             migrationBuilder.DropTable(
                 name: "Tecnicas");
 
             migrationBuilder.DropTable(
                 name: "Testes_Realizados");
+
+            migrationBuilder.DropTable(
+                name: "Perguntas");
 
             migrationBuilder.DropTable(
                 name: "Testes");

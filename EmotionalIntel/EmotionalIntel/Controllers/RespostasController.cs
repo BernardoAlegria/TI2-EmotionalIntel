@@ -65,7 +65,7 @@ namespace EmotionalIntel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
+            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 
@@ -82,7 +82,7 @@ namespace EmotionalIntel.Controllers
             {
                 return NotFound();
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
+            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 
@@ -118,7 +118,7 @@ namespace EmotionalIntel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntasFK);
+            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 

@@ -22,7 +22,7 @@ namespace EmotionalIntel.Models
 
         //******************FK************************
         [ForeignKey("Perguntas")]
-        public int PerguntasFK { get; set; }
+        public int PerguntaFK { get; set; }
         public Perguntas Perguntas { get; set; }
 
     }

@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmotionalIntel.Migrations
 {
     [DbContext(typeof(EmotionalDB))]
-    [Migration("20200509232634_myFirstMigration")]
-    partial class myFirstMigration
+    [Migration("20200517224153_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -40,6 +40,27 @@ namespace EmotionalIntel.Migrations
                     b.HasIndex("TesteFK");
 
                     b.ToTable("Perguntas");
+                });
+
+            modelBuilder.Entity("EmotionalIntel.Models.Respostas", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PerguntaFK")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TxtRespostas")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("PerguntaFK");
+
+                    b.ToTable("Respostas");
                 });
 
             modelBuilder.Entity("EmotionalIntel.Models.Tecnicas", b =>
@@ -115,10 +136,10 @@ namespace EmotionalIntel.Migrations
                     b.Property<int>("Pontuacao")
                         .HasColumnType("int");
 
-                    b.Property<int>("TesteFK")
+                    b.Property<int?>("TesteFK")
                         .HasColumnType("int");
 
-                    b.Property<int>("UtilizadorFK")
+                    b.Property<int?>("UtilizadorFK")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -155,6 +176,15 @@ namespace EmotionalIntel.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EmotionalIntel.Models.Respostas", b =>
+                {
+                    b.HasOne("EmotionalIntel.Models.Perguntas", "Perguntas")
+                        .WithMany("ListaRespostas")
+                        .HasForeignKey("PerguntaFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EmotionalIntel.Models.Tecnicas", b =>
                 {
                     b.HasOne("EmotionalIntel.Models.Testes", "Teste")
@@ -177,15 +207,11 @@ namespace EmotionalIntel.Migrations
                 {
                     b.HasOne("EmotionalIntel.Models.Testes", "Teste")
                         .WithMany("ListaTestesRealizados")
-                        .HasForeignKey("TesteFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TesteFK");
 
                     b.HasOne("EmotionalIntel.Models.Utilizadores", "Utilizador")
                         .WithMany("ListaTestesRealizados")
-                        .HasForeignKey("UtilizadorFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UtilizadorFK");
                 });
 #pragma warning restore 612, 618
         }

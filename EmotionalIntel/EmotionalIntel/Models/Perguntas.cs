@@ -11,7 +11,7 @@ namespace EmotionalIntel.Models
     {
         public Perguntas()
         {
-
+            ListaRespostas = new HashSet<Respostas>();
         }
         [Key]
         public int ID { get; set; }
@@ -23,5 +23,6 @@ namespace EmotionalIntel.Models
         public int TesteFK { get; set; }
         public Testes Testes { get; set; }
 
+        public ICollection<Respostas> ListaRespostas { get; set; }
     }
 }

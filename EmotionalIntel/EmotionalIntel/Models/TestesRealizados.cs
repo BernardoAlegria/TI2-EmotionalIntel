@@ -21,12 +21,15 @@ namespace EmotionalIntel.Models
 
 
         //******************FK************************
+        // este int? é um workaround para quebrar o ciclo
+        // https://entityframeworkcore.com/knowledge-base/52268985/may-cause-cycles-or-multiple-cascade-paths--specify-on-delete-no-action-or-on-update-no-action--or-modify-other-foreign-key-constraints
+        
         [ForeignKey("Utilizador")] 
-        public int UtilizadorFK { get; set; } 
+        public int? UtilizadorFK { get; set; } 
         public Utilizadores Utilizador { get; set; }
 
         [ForeignKey("Teste")]
-        public int TesteFK { get; set; }
+        public int? TesteFK { get; set; }
         public Testes Teste { get; set; }
     }
 }
