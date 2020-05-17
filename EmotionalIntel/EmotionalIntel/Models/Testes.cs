@@ -28,7 +28,13 @@ namespace EmotionalIntel.Models
         public string Descricao { get; set; }
 
         [Required]
-        public string NiveisPontuacao { get; set; }
+        public int PontuacaoMedia { get; set; }
+
+        [Required]
+        public int PontuacaoAlta { get; set; }
+
+
+
 
         //******************FK************************
         [ForeignKey("Utilizador")]

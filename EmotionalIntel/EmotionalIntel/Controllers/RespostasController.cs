@@ -48,7 +48,7 @@ namespace EmotionalIntel.Controllers
         // GET: Respostas/Create
         public IActionResult Create()
         {
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta");
+            ViewData["PerguntaFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace EmotionalIntel.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TxtRespostas,PerguntasFK")] Respostas respostas)
+        public async Task<IActionResult> Create([Bind("ID,TxtRespostas,PerguntaFK")] Respostas respostas)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace EmotionalIntel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
+            ViewData["PerguntaFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 
@@ -82,7 +82,7 @@ namespace EmotionalIntel.Controllers
             {
                 return NotFound();
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
+            ViewData["PerguntaFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 
@@ -91,7 +91,7 @@ namespace EmotionalIntel.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TxtRespostas,PerguntasFK")] Respostas respostas)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,TxtRespostas,PerguntaFK")] Respostas respostas)
         {
             if (id != respostas.ID)
             {
@@ -118,7 +118,7 @@ namespace EmotionalIntel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PerguntasFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
+            ViewData["PerguntaFK"] = new SelectList(_context.Perguntas, "ID", "TxtPergunta", respostas.PerguntaFK);
             return View(respostas);
         }
 

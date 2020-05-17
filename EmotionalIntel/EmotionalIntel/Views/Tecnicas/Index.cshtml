@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EmotionalIntel.Models.Tecnicas>
 
 @{
-    ViewData["Title"] = "Técnicas";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Nivel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Teste.NiveisPontuacao)
+                @Html.DisplayFor(modelItem => item.Teste.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

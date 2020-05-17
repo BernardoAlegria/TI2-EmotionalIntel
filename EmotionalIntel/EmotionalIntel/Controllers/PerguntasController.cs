@@ -48,7 +48,7 @@ namespace EmotionalIntel.Controllers
         // GET: Perguntas/Create
         public IActionResult Create()
         {
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao");
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace EmotionalIntel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", perguntas.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", perguntas.TesteFK);
             return View(perguntas);
         }
 
@@ -82,7 +82,7 @@ namespace EmotionalIntel.Controllers
             {
                 return NotFound();
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", perguntas.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", perguntas.TesteFK);
             return View(perguntas);
         }
 
@@ -118,7 +118,7 @@ namespace EmotionalIntel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", perguntas.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", perguntas.TesteFK);
             return View(perguntas);
         }
 

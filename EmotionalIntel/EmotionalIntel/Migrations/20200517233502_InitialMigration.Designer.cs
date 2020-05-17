@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmotionalIntel.Migrations
 {
     [DbContext(typeof(EmotionalDB))]
-    [Migration("20200517224153_InitialMigration")]
+    [Migration("20200517233502_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,13 +105,15 @@ namespace EmotionalIntel.Migrations
                     b.Property<int>("NRespostas")
                         .HasColumnType("int");
 
-                    b.Property<string>("NiveisPontuacao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PontuacaoAlta")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PontuacaoMedia")
+                        .HasColumnType("int");
 
                     b.Property<int>("UtilizadorFK")
                         .HasColumnType("int");

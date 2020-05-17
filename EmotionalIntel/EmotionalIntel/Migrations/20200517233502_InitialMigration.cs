@@ -29,7 +29,8 @@ namespace EmotionalIntel.Migrations
                     Nome = table.Column<string>(nullable: false),
                     NRespostas = table.Column<int>(nullable: false),
                     Descricao = table.Column<string>(nullable: true),
-                    NiveisPontuacao = table.Column<string>(nullable: false),
+                    PontuacaoMedia = table.Column<int>(nullable: false),
+                    PontuacaoAlta = table.Column<int>(nullable: false),
                     UtilizadorFK = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

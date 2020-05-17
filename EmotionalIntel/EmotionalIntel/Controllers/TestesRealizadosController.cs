@@ -49,7 +49,7 @@ namespace EmotionalIntel.Controllers
         // GET: TestesRealizados/Create
         public IActionResult Create()
         {
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao");
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome");
             ViewData["UtilizadorFK"] = new SelectList(_context.Utilizadores, "ID", "Nome");
             return View();
         }
@@ -67,7 +67,7 @@ namespace EmotionalIntel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", testesRealizados.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", testesRealizados.TesteFK);
             ViewData["UtilizadorFK"] = new SelectList(_context.Utilizadores, "ID", "Nome", testesRealizados.UtilizadorFK);
             return View(testesRealizados);
         }
@@ -85,7 +85,7 @@ namespace EmotionalIntel.Controllers
             {
                 return NotFound();
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", testesRealizados.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", testesRealizados.TesteFK);
             ViewData["UtilizadorFK"] = new SelectList(_context.Utilizadores, "ID", "Nome", testesRealizados.UtilizadorFK);
             return View(testesRealizados);
         }
@@ -122,7 +122,7 @@ namespace EmotionalIntel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "NiveisPontuacao", testesRealizados.TesteFK);
+            ViewData["TesteFK"] = new SelectList(_context.Testes, "ID", "Nome", testesRealizados.TesteFK);
             ViewData["UtilizadorFK"] = new SelectList(_context.Utilizadores, "ID", "Nome", testesRealizados.UtilizadorFK);
             return View(testesRealizados);
         }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EmotionalIntel.Models.Testes>
 
 @{
-    ViewData["Title"] = "Testes";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
@@ -22,7 +22,10 @@
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NiveisPontuacao)
+                @Html.DisplayNameFor(model => model.PontuacaoMedia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PontuacaoAlta)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Utilizador)
@@ -43,7 +46,10 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NiveisPontuacao)
+                @Html.DisplayFor(modelItem => item.PontuacaoMedia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PontuacaoAlta)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Utilizador.Nome)
