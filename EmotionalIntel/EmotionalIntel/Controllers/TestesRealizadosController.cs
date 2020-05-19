@@ -20,6 +20,15 @@ namespace EmotionalIntel.Controllers
         }
 
         // GET: TestesRealizados
+        public async Task<IActionResult> FazerTeste()
+        {
+            var emotionalDB = _context.Testes_Realizados.Include(t => t.Teste).Include(t => t.Utilizador);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB); 
+        }
+
+        // GET: TestesRealizados
         public async Task<IActionResult> Index()
         {
             var emotionalDB = _context.Testes_Realizados.Include(t => t.Teste).Include(t => t.Utilizador);
