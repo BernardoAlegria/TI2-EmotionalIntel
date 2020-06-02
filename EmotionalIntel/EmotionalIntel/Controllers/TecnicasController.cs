@@ -26,6 +26,63 @@ namespace EmotionalIntel.Controllers
             return View(await emotionalDB.ToListAsync());
         }
 
+        public async Task<IActionResult> GestaoTempo()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> Empatia()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> GestaoStress()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> DesenvolvimentoEmocional()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> Coaching()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> InteligenciaEmocionalGlobal()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> GestaoConflitos()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+        public async Task<IActionResult> ExaustaoEmocional()
+        {
+            var emotionalDB = _context.Tecnicas.Include(t => t.Teste);
+            //    return View(await emotionalDB.ToListAsync());
+
+            return View(emotionalDB);
+        }
+
         // GET: Tecnicas/Details/5
         public async Task<IActionResult> Details(int? id)
         {

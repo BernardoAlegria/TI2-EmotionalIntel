@@ -11,20 +11,35 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmotionalIntel</a>
+                <!--     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmotionalIntel</a>-->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" width="145px" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <!--                <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-    </li>
-    -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TestesRealizados" asp-action="FazerTeste"><b>Realizar Teste</b></a>
-                        </li>
+
+
+
+                        <div id="divTecnicas">
+                            <li id="tecnicas" class="nav-item dropdown">
+                                <a id="nav-anchor" class="nav-link dropdown-toggle" data-toggle="dropdown">Realizar Teste</a>
+                                <div id="dropdown-menu" class="dropdown-menu">
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="TestesRealizados" asp-action="FazerTeste">Exaustão Emocional e Descrença</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Home" asp-action="Index">Gestão de Tempo</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Home" asp-action="Index">Empatia</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Home" asp-action="Index">Gestão de Conflitos</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Home" asp-action="Index">Gestão de Stress</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Home" asp-action="Index">Inteligência Emocional</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="TestesRealizados" asp-action="FazerTeste2">Desenvolvimento Emocional</a>
+
+                                </div>
+                            </li>
+                        </div>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Perguntas" asp-action="Index">Perguntas</a>
                         </li>
@@ -40,10 +55,28 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="TestesRealizados" asp-action="Index">Testes Realizados</a>
                         </li>
-                    
+                        <div id="divTecnicas">
+                            <li id="tecnicas" class="nav-item dropdown">
+                                <a id="nav-anchor" class="nav-link dropdown-toggle" data-toggle="dropdown">Técnicas</a>
+                                <div id="dropdown-menu" class="dropdown-menu">
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="Empatia">Empatia</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="ExaustaoEmocional">Exaustão Emocional</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="GestaoConflitos">Gestão de conflitos</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="GestaoStress">Gestão de stress</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="GestaoTempo">Gestão de tempo</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="InteligenciaEmocionalGlobal">Inteligência Emocional Global</a>
+                                    <a id="dropdown-item" class="dropdown-item" asp-controller="Tecnicas" asp-action="DesenvolvimentoEmocional">Desenvolvimento Emocional</a>
+
+                                </div>
+                            </li>
+                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tecnicas" asp-action="Coaching">Coaching</a>
+                        </li>
+
                     </ul>
-                    </div>
                 </div>
+            </div>
             </nav>
         </header>
         <div class="container">
